@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>محلل درجات الطلاب المتعثرين</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <h1 class="page-title">محلل درجات الطلاب المتعثرين</h1>
+
+  <!-- Form -->
+  <div class="card">
+    <div class="card-header header-blue">إدخال بيانات طالب</div>
+    <div class="card-body">
+      <form id="studentForm" class="form-row">
+        <div class="field">
+          <label for="studentId">رقم الطالب (ID)</label>
+          <input type="number" id="studentId" placeholder="مثال: 1001" min="1" required>
+        </div>
+        <div class="field">
+          <label for="average">متوسط الدرجات (Average)</label>
+          <input type="number" id="average" placeholder="من 0 إلى 100" min="0" max="100" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-add">إضافة</button>
+      </form>
+      <div id="msg"></div>
+    </div>
+  </div>
+
+  <!-- All students -->
+  <div class="card">
+    <div class="card-header header-dark">قائمة الطلاب</div>
+    <table>
+      <thead>
+        <tr><th>#</th><th>رقم الطالب</th><th>متوسط الدرجات</th><th>حذف</th></tr>
+      </thead>
+      <tbody id="studentsBody">
+        <tr><td colspan="4" class="empty">لا توجد بيانات بعد</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Struggling students -->
+  <div class="card">
+    <div class="card-header header-yellow">الطلاب المتعثرون (المتوسط من 40 إلى 49)</div>
+    <table>
+      <thead>
+        <tr>
+          <th>رقم الطالب</th>
+          <th>المتوسط الحالي</th>
+          <th>درجات الرأفة</th>
+          <th>المتوسط الجديد</th>
+        </tr>
+      </thead>
+      <tbody id="strugglingBody">
+        <tr><td colspan="4" class="empty">لا يوجد طلاب متعثرون</td></tr>
+      </tbody>
+    </table>
+    <div class="card-footer">
+      يتم إضافة 5 درجات رأفة، ولا يتجاوز المتوسط النهائي 50.
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
